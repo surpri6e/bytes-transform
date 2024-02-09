@@ -1,15 +1,15 @@
-# Bytes transformer
+# Bytes transform
 
-## Gettings started 
+## Getting started 
 
 ```
-npm i bytes-transformer
+npm i bytes-transform
 ```
 
 After that we can use:
 
 ```js
-import { formatBytes } from 'bytes-transformer';
+import { formatBytes } from 'bytes-transform';
 
 const newFormat = formatBytes(5000, {'MB', 'GB'});
 console.log(newFormat.amountOfCapacityBytes, newFormat.size);
