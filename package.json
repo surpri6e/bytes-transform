@@ -1,0 +1,27 @@
+{
+  "name": "bytes-transformer",
+  "version": "1.0.0",
+  "description": "package to transform your bytes",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surpri6e/bytes-transformer.git"
+  },
+  "keywords": [
+    "bytes",
+    "ts",
+    "js"
+  ],
+  "author": "surpri6e",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/surpri6e/bytes-transformer/issues"
+  },
+  "homepage": "https://github.com/surpri6e/bytes-transformer#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
