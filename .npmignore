@@ -1,3 +1,5 @@
 node_modules/
-*.ts
-**/*.ts
+index.ts
+src/constants.ts
+src/formatBytes.ts
+src/types.ts

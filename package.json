@@ -1,6 +1,6 @@
 {
-  "name": "bytes-transformer",
-  "version": "1.2.0",
+  "name": "bytes-transform",
+  "version": "1.3.0",
   "description": "package to transform your bytes",
   "main": "index.js",
   "scripts": {
