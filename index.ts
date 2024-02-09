@@ -1,2 +1,2 @@
-import { SIZES } from "./constants";
-import { formatBytesToBytes, formatBytes } from "./formatBytes";
+import { SIZES } from "./src/constants";
+import { formatBytesToBytes, formatBytes } from "./src/formatBytes";
