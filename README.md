@@ -1,19 +1,16 @@
 # Bytes transform
 
-## Getting started 
+## Getting started
 
 ```
 npm i bytes-transform
 ```
 
-After that we can use:
+After that, we can use:
 
 ```js
 import { formatBytes } from 'bytes-transform';
 
-const newFormat = formatBytes(5000, {'MB', 'GB'});
-console.log(newFormat.amountOfCapacityBytes, newFormat.size);
+const newFormat = formatBytes(1024, {'MB', 'GB'});
+console.log(newFormat.amount, newFormat.prefix);
 ```
-
-
-**Try to integrate this function in *Files* prototype.**

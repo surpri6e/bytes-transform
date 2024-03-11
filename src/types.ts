@@ -1,6 +1,6 @@
-export type TListOfSizes = 'B' | 'KB' | 'MB' | 'GB' | 'TB';
+export type TListOfPrefix = 'B' | 'KB' | 'MB' | 'GB' | 'TB';
 
-export enum EListOfSizes {
+export enum EListOfPrefix {
     'B' = 0,
     'KB' = 1,
     'MB' = 2,
@@ -11,12 +11,12 @@ export enum EListOfSizes {
 export type TCapacityStrength = 1000 | 1024;
 
 export interface IFormatBytesOptions {
-    from: EListOfSizes;
-    to: EListOfSizes;
-    capacityStrength?: TCapacityStrength;
+    readonly from: EListOfPrefix;
+    readonly to: EListOfPrefix;
+    readonly capacityStrength?: TCapacityStrength;
 }
 
 export interface IFormatBytesReturned {
-    amountOfCapacityBytes: number;
-    size: EListOfSizes;
+    readonly amount: number;
+    readonly prefix: EListOfPrefix;
 }

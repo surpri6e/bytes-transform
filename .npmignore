@@ -1,5 +1,4 @@
 node_modules/
 index.ts
-src/constants.ts
 src/formatBytes.ts
 src/types.ts

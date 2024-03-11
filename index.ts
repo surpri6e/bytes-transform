@@ -1,4 +1,4 @@
-import { SIZES } from "./src/constants";
-import { formatBytesToBytes, formatBytes } from "./src/formatBytes";
+import { formatBytesToBytes, formatBytes } from './src/formatBytes';
+import { EListOfPrefix, IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, TListOfPrefix } from './src/types';
 
-export { SIZES, formatBytes, formatBytesToBytes};
+export { formatBytes, formatBytesToBytes, EListOfPrefix, IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, TListOfPrefix };
