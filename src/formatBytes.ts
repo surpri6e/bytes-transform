@@ -1,17 +1,22 @@
-import { IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, EListOfPrefix } from './types';
+import { PREFIXES } from './constants';
+import { IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, TListOfPrefix } from './types';
 
 /** 
   Transfer your bytes with prefix to standart bytes.
   @param {number} amount count of bytes with prefix
-  @param {EListOfPrefix} from prefix
+  @param {TListOfPrefix} from prefix
   @param {TCapacityStrength} capacityStrength capacity strength
 
   @returns {nubmer} nubmer of standart bytes
 */
-export function formatBytesToBytes(amount: number, from: EListOfPrefix, capacityStrength: TCapacityStrength = 1024): number {
+export function formatBytesToBytes(amount: number, from: TListOfPrefix, capacityStrength: TCapacityStrength = 1024): number {
+    if (typeof amount != 'number' || typeof capacityStrength != 'number' || typeof from != 'string') {
+        throw new TypeError('Incorrect type!');
+    }
+
     let result: number = amount;
 
-    for (let i = 0; i < from; i++) {
+    for (let i = 0; i < PREFIXES.indexOf(from); i++) {
         result *= capacityStrength;
     }
 
@@ -26,6 +31,15 @@ export function formatBytesToBytes(amount: number, from: EListOfPrefix, capacity
   @returns {IFormatBytesReturned} object with amount and another prefix
 */
 export function formatBytes(amount: number, options: IFormatBytesOptions): IFormatBytesReturned {
+    if (
+        typeof amount != 'number' ||
+        (typeof options.capacityStrength != 'number' && typeof options.capacityStrength != 'undefined') ||
+        typeof options.from != 'string' ||
+        typeof options.to != 'string'
+    ) {
+        throw new TypeError('Incorrect type!');
+    }
+
     if (amount === 0) {
         return {
             amount: 0,
@@ -45,7 +59,7 @@ export function formatBytes(amount: number, options: IFormatBytesOptions): IForm
     const bytes: number = formatBytesToBytes(amount, options.from, capacityStrength);
     let result: number = bytes;
 
-    for (let i = 0; i < options.to; i++) {
+    for (let i = 0; i < PREFIXES.indexOf(options.to); i++) {
         result /= capacityStrength;
     }
 

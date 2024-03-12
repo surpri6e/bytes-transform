@@ -16,4 +16,11 @@
 ### Added
 
 -   Export and modernization types and older files.
--   Create and tune .prettierrc
+-   Create and tune .prettierrc.
+
+## [1.3.3] - 12.03.2024
+
+### Added
+
+-   Check on type error in .js files.
+-   Fix bugs with main fucntion.

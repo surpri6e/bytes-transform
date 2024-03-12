@@ -2,3 +2,4 @@ node_modules/
 index.ts
 src/formatBytes.ts
 src/types.ts
+src/constants.ts
