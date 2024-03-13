@@ -24,3 +24,10 @@
 
 -   Check on type error in .js files.
 -   Fix bugs with main fucntion.
+
+## [1.3.4] - 13.03.2024
+
+### Added
+
+-   Did returned object is frozen.
+-   Strictly typed all fucntions.

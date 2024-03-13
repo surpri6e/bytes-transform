@@ -7,11 +7,15 @@ import { IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, TListOfPr
   @param {TListOfPrefix} from prefix
   @param {TCapacityStrength} capacityStrength capacity strength
 
-  @returns {nubmer} nubmer of standart bytes
+  @returns {number} number of standart bytes
 */
 export function formatBytesToBytes(amount: number, from: TListOfPrefix, capacityStrength: TCapacityStrength = 1024): number {
-    if (typeof amount != 'number' || typeof capacityStrength != 'number' || typeof from != 'string') {
-        throw new TypeError('Incorrect type!');
+    if (typeof amount != 'number' || typeof capacityStrength != 'number') {
+        throw new TypeError('Amount or capacityStrength are need be number.');
+    }
+
+    if (from != 'B' && from != 'KB' && from != 'MB' && from != 'GB' && from != 'TB') {
+        throw new TypeError('Second parameter(from) is need be "B" or "KB" or "MB" or "GB" or "TB".');
     }
 
     let result: number = amount;
@@ -31,27 +35,38 @@ export function formatBytesToBytes(amount: number, from: TListOfPrefix, capacity
   @returns {IFormatBytesReturned} object with amount and another prefix
 */
 export function formatBytes(amount: number, options: IFormatBytesOptions): IFormatBytesReturned {
-    if (
-        typeof amount != 'number' ||
-        (typeof options.capacityStrength != 'number' && typeof options.capacityStrength != 'undefined') ||
-        typeof options.from != 'string' ||
-        typeof options.to != 'string'
-    ) {
-        throw new TypeError('Incorrect type!');
+    if (typeof amount != 'number') {
+        throw new TypeError('Amount is need be number.');
+    }
+
+    if (typeof options.capacityStrength != 'number' && typeof options.capacityStrength != 'undefined') {
+        throw new TypeError('CapacityStrength is need be number.');
+    }
+
+    if (options.from != 'B' && options.from != 'KB' && options.from != 'MB' && options.from != 'GB' && options.from != 'TB') {
+        throw new TypeError('Options.from is need be "B" or "KB" or "MB" or "GB" or "TB".');
+    }
+
+    if (options.to != 'B' && options.to != 'KB' && options.to != 'MB' && options.to != 'GB' && options.to != 'TB') {
+        throw new TypeError('Options.to is need be "B" or "KB" or "MB" or "GB" or "TB".');
     }
 
     if (amount === 0) {
-        return {
+        const returned: IFormatBytesReturned = {
             amount: 0,
             prefix: options.from,
         };
+        Object.freeze(returned);
+        return returned;
     }
 
     if (options.from === options.to) {
-        return {
+        const returned: IFormatBytesReturned = {
             amount,
             prefix: options.from,
         };
+        Object.freeze(returned);
+        return returned;
     }
 
     const capacityStrength: TCapacityStrength = options.capacityStrength ? options.capacityStrength : 1024;
@@ -63,8 +78,11 @@ export function formatBytes(amount: number, options: IFormatBytesOptions): IForm
         result /= capacityStrength;
     }
 
-    return {
+    const returned: IFormatBytesReturned = {
         amount: result,
         prefix: options.to,
     };
+
+    Object.freeze(returned);
+    return returned;
 }
