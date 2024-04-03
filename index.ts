@@ -1,5 +1,7 @@
-import { formatBytesToBytes, formatBytes } from './src/formatBytes';
-import { IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, TListOfPrefix } from './src/types';
+import { formatBytes } from './src/formatBytes';
+import { formatBytesToBytes } from './src/formatBytesToBytes';
+
+import { IFormatBytesOptions, IFormattedBytes, TCapacityStrength, TListOfPrefix, TFixTo } from './src/types';
 import { PREFIXES } from './src/constants';
 
-export { formatBytes, formatBytesToBytes, IFormatBytesOptions, IFormatBytesReturned, TCapacityStrength, TListOfPrefix, PREFIXES };
+export { formatBytes, formatBytesToBytes, IFormatBytesOptions, IFormattedBytes, TCapacityStrength, TListOfPrefix, TFixTo, PREFIXES };

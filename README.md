@@ -73,7 +73,7 @@ export function formatBytesToBytes(amount: number, from: TListOfPrefix, capacity
 
   @returns {IFormatBytesReturned} object with amount and another prefix
 */
-export function formatBytes(amount: number, options: IFormatBytesOptions): IFormatBytesReturned;
+export function formatBytes(amount: number, options: IFormatBytesOptions): IFormattedBytes;
 ```
 
 ### TListOfPrefix
@@ -88,6 +88,12 @@ export type TListOfPrefix = 'B' | 'KB' | 'MB' | 'GB' | 'TB';
 export type TCapacityStrength = 1000 | 1024;
 ```
 
+### TFixTo
+
+```ts
+export type TFixTo = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+```
+
 ### IFormatBytesOptions
 
 ```ts
@@ -95,13 +101,14 @@ export interface IFormatBytesOptions {
     readonly from: TListOfPrefix;
     readonly to: TListOfPrefix;
     readonly capacityStrength?: TCapacityStrength;
+    readonly fixTo?: TFixTo;
 }
 ```
 
 ### IFormatBytesReturned
 
 ```ts
-export interface IFormatBytesReturned {
+export interface IFormattedBytes {
     readonly amount: number;
     readonly prefix: TListOfPrefix;
 }

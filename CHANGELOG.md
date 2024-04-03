@@ -36,5 +36,5 @@
 
 ### Added
 
--
--
+-   Changed name of type
+-   Create new functional

@@ -1,4 +1,5 @@
-src/*.js
 index.js
+*.js
 *.d.ts
+
 node_modules/
