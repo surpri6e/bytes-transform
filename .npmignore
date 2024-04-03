@@ -1,6 +1,7 @@
 node_modules/
 index.ts
 src/formatBytes.ts
+src/formatBytesToBytes.ts
 src/types.ts
 src/constants.ts
 tests/

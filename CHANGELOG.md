@@ -31,3 +31,10 @@
 
 -   Did returned object is frozen.
 -   Strictly typed all fucntions.
+
+## [1.3.6] - 03.04.2024
+
+### Added
+
+-
+-
