@@ -105,7 +105,7 @@ export interface IFormatBytesOptions {
 }
 ```
 
-### IFormatBytesReturned
+### IFormattedBytes
 
 ```ts
 export interface IFormattedBytes {
