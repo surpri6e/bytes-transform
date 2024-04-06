@@ -52,6 +52,8 @@ const { formatBytes, formatBytesToBytes } = require('bytes-transform');
 ### formatBytesToBytes
 
 ```ts
+type TFormatBytesToBytesSignature = (amount: number, from: TListOfPrefix, capacityStrength: TCapacityStrength) => number;
+
 /**
 Transfer your bytes with prefix to standart bytes.
 @param {number} amount count of bytes with prefix
@@ -60,12 +62,14 @@ Transfer your bytes with prefix to standart bytes.
 
 @returns {number} number of standart bytes
 */
-export function formatBytesToBytes(amount: number, from: TListOfPrefix, capacityStrength: TCapacityStrength = 1024): number;
+export const formatBytesToBytes: TFormatBytesToBytesSignature = (amount, from, capacityStrength = 1024) => {...};
 ```
 
 ### formatBytes
 
 ```ts
+type TFormatBytesSignature = (amount: number, options: IFormatBytesOptions) => IFormattedBytes;
+
 /**
   Transfer your bytes in bytes with other prefix
   @param {number} amount count of bytes with prefix
@@ -73,7 +77,7 @@ export function formatBytesToBytes(amount: number, from: TListOfPrefix, capacity
 
   @returns {IFormatBytesReturned} object with amount and another prefix
 */
-export function formatBytes(amount: number, options: IFormatBytesOptions): IFormattedBytes;
+export const formatBytes: TFormatBytesSignature = (amount, options) => {...}
 ```
 
 ### TListOfPrefix
